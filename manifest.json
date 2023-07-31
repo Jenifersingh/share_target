@@ -5,7 +5,7 @@
   "display": "standalone",
   "share_target": {
     "url_template": "sharetarget.html?oldapi=true&title={title}&text={text}&url={url}",
-    "action": "sharetarget.html",
+    "action": "https://work.kissflow.com/view/chat/Engineering_Team",
     "params": {
       "title": "title",
       "text": "text",
