@@ -13,9 +13,8 @@ self.addEventListener("fetch", (event) => {
           event.request.method === "POST" &&
           url.pathname === "/share_target/sharetarget.html"
         ) {
-          console.log("INSIDE URL", url);
           const formData = await event.request.formData();
-
+          console.log("INSIDE URL", formData);
           self.clients.matchAll({ type: "window" }).then((clients) => {
             clients.forEach((client) => {
               postMessage({
@@ -24,7 +23,7 @@ self.addEventListener("fetch", (event) => {
               });
             });
           });
-          return;
+          return await fetch(event.request);
         }
         return await fetch(event.request);
       } catch (e) {
