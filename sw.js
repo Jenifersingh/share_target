@@ -15,7 +15,7 @@ self.addEventListener("fetch", (event) => {
         ) {
           console.log("URL", url);
           const formData = await event.request.formData();
-          postMessage({
+          window.postMessage({
             formData,
             id: "IDDS",
           });
@@ -24,7 +24,7 @@ self.addEventListener("fetch", (event) => {
         return await fetch(event.request);
       } catch (e) {
         // Failure. Just return a 200 page, to satisfy Lighthouse.
-        postMessage({
+        window.postMessage({
           e,
           id: "IDDS",
         });
