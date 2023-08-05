@@ -8,13 +8,16 @@ self.addEventListener("fetch", (event) => {
       // Get content from the network.
       try {
         const url = new URL(event.request.url);
+        console.log("URL", url);
         if (
           event.request.method === "POST" &&
-          url.pathname === "/sharetarget.html"
+          url.pathname === "sharetarget.html"
         ) {
+          console.log("URL", url);
           const formData = await event.request.formData();
           postMessage({
             formData,
+            id: "IDDS",
           });
           return;
         }
