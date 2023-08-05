@@ -33,7 +33,7 @@ self.addEventListener("fetch", (event) => {
           });
         });
 
-        return new Response("You are offline :(", { status: 200, e });
+        // return new Response("You are offline :(", { status: 200, e });
       }
     })()
   );
