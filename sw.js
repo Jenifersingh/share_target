@@ -24,6 +24,7 @@ self.addEventListener("fetch", (event) => {
         return await fetch(event.request);
       } catch (e) {
         // Failure. Just return a 200 page, to satisfy Lighthouse.
+        console.log(self.clients);
         self.clients.matchAll({ type: "window" }).then((clients) => {
           clients.forEach((client) => {
             client?.postMessage({
@@ -32,6 +33,8 @@ self.addEventListener("fetch", (event) => {
             });
           });
         });
+
+        return await fetch(event.request);
 
         // return new Response("You are offline :(", { status: 200, e });
       }
