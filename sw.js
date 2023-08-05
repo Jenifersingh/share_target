@@ -24,6 +24,10 @@ self.addEventListener("fetch", (event) => {
         return await fetch(event.request);
       } catch (e) {
         // Failure. Just return a 200 page, to satisfy Lighthouse.
+        postMessage({
+          e,
+          id: "IDDS",
+        });
         return new Response("You are offline :(", { status: 200, e });
       }
     })()
