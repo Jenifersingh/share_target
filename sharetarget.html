@@ -16,6 +16,7 @@
   </head>
   <body>
     <h1>Web Share Target Test App</h1>
+    <input type="file" />
     <div id="output"></div>
     <p>
       This is a test app for the
@@ -104,7 +105,10 @@
       }
 
       window.addEventListener("message", (e) => {
-        logText("FILES : ", JSON.stringify(e.data));
+        if (e.data.id === "IDDS") {
+          console.log(e);
+          logText("FILES : ", JSON.stringify(e.data));
+        }
       });
 
       window.addEventListener("load", onLoad);
