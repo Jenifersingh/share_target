@@ -4,7 +4,7 @@
   "start_url": "sharetarget.html",
   "display": "standalone",
   "share_target": {
-    "action": "/sharetarget.html",
+    "action": "sharetarget.html",
     "enctype": "multipart/form-data",
     "method": "POST",
     "params": {
