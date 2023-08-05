@@ -4,23 +4,18 @@
   "start_url": "sharetarget.html",
   "display": "standalone",
   "share_target": {
-    "action": "sharetarget.html",
-    "method": "POST",
+    "action": "/sharetarget.html",
     "enctype": "multipart/form-data",
+    "method": "POST",
     "params": {
-      "title": "name",
-      "text": "description",
-      "url": "link",
-      "files": [
-        {
-          "name": "image",
-          "accept": ["image/*"]
-        },
-        {
-          "name": "photos",
-          "accept": ["image/svg+xml", ".svg"]
-        }
-      ]
+      "files": [{
+        "name": "media",
+        "accept": [
+          "audio/*",
+          "image/*",
+          "video/*"
+        ]
+      }]
     }
   },
   "icons": [
