@@ -11,20 +11,25 @@ self.addEventListener("fetch", (event) => {
         console.log("URL", url);
         if (
           event.request.method === "POST" &&
-          url.pathname === "sharetarget.html"
+          url.pathname === "/share_target/sharetarget.html"
         ) {
-          console.log("URL", url);
+          console.log("INSIDE URL", url);
           const formData = await event.request.formData();
-          postMessage({
-            formData,
-            id: "IDDS",
+
+          self.clients.matchAll({ type: "window" }).then((clients) => {
+            clients.forEach((client) => {
+              postMessage({
+                formData,
+                id: "IDDS",
+              });
+            });
           });
           return;
         }
         return await fetch(event.request);
       } catch (e) {
         // Failure. Just return a 200 page, to satisfy Lighthouse.
-        console.log(self.clients);
+        console.log(e);
         self.clients.matchAll({ type: "window" }).then((clients) => {
           clients.forEach((client) => {
             client?.postMessage({
