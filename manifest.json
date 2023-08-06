@@ -4,12 +4,18 @@
   "start_url": "sharetarget.html",
   "display": "standalone",
   "share_target": {
-    "url_template": "sharetarget.html?oldapi=true&title={title}&text={text}&url={url}",
     "action": "sharetarget.html",
+    "enctype": "multipart/form-data",
+    "method": "POST",
     "params": {
-      "title": "title",
-      "text": "text",
-      "url": "url"
+      "files": [{
+        "name": "media",
+        "accept": [
+          "audio/*",
+          "image/*",
+          "video/*"
+        ]
+      }]
     }
   },
   "icons": [{
