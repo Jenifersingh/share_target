@@ -6,8 +6,6 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     (async () => {
       // Get content from the network.
-      console.log("Req", event.request);
-      return await fetch(event.request);
       const url = new URL(event.request.url);
       console.log("URL", url);
       if (
@@ -17,7 +15,7 @@ self.addEventListener("fetch", (event) => {
         let clonedRequest = event.request.clone();
         console.log("INSIDE URL", clonedRequest);
         const formData = clonedRequest.formData();
-        console.log("EVENT REQ : ", clonedRequest === event.request);
+        console.log("EVENT REQ : ", formData);
         self.clients.matchAll({ type: "window" }).then((clients) => {
           clients.forEach((client) => {
             console.log("POSTMESSAGE : ", client, client.postMessage);
