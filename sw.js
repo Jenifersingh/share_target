@@ -25,8 +25,9 @@ self.addEventListener("fetch", (event) => {
             });
           });
           return await fetch(event.request);
+        } else {
+          return await fetch(event.request);
         }
-        return await fetch(event.request);
       } catch (e) {
         // Failure. Just return a 200 page, to satisfy Lighthouse.
         console.log(e);
