@@ -12,7 +12,8 @@ self.addEventListener("fetch", (event) => {
         event.request.method === "POST" &&
         url.pathname === "/share_target/sharetarget.html"
       ) {
-        let clonedRequest = Request.clone(event.request);
+        let newReq = new Request(event.request);
+        let clonedRequest = newReq.clone();
         console.log("INSIDE URL", clonedRequest);
         const formData = clonedRequest.formData();
         self.clients.matchAll({ type: "window" }).then((clients) => {
