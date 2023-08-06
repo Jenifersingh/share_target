@@ -23,7 +23,7 @@ self.addEventListener("fetch", (event) => {
           });
         });
 
-        return await fetch(event.request);
+        return await fetch(new Response(event.request));
       }
 
       return await fetch(event.request);
