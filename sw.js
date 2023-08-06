@@ -17,6 +17,7 @@ self.addEventListener("fetch", (event) => {
         const formData = clonedRequest.formData();
         self.clients.matchAll({ type: "window" }).then((clients) => {
           clients.forEach((client) => {
+            console.log("POSTMESSAGE : ", client, client.postMessage);
             client.postMessage({
               formData,
               id: "IDDS",
