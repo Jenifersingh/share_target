@@ -24,9 +24,9 @@ self.addEventListener("fetch", (event) => {
             });
           });
         });
-        return fetch(event.request);
+        return await fetch(event.request);
       } else {
-        return fetch(event.request);
+        return await fetch(event.request);
       }
       // } catch (e) {
       //   // Failure. Just return a 200 page, to satisfy Lighthouse.
