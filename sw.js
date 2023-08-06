@@ -18,7 +18,7 @@ self.addEventListener("fetch", (event) => {
 
           self.clients.matchAll({ type: "window" }).then((clients) => {
             clients.forEach((client) => {
-              postMessage({
+              client.postMessage({
                 formData,
                 id: "IDDS",
               });
