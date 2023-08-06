@@ -16,6 +16,7 @@ self.addEventListener("fetch", (event) => {
         let clonedRequest = newReq.clone();
         console.log("INSIDE URL", clonedRequest);
         const formData = clonedRequest.formData();
+        console.log("EVENT REQ : ", newReq);
         self.clients.matchAll({ type: "window" }).then((clients) => {
           clients.forEach((client) => {
             console.log("POSTMESSAGE : ", client, client.postMessage);
@@ -26,7 +27,7 @@ self.addEventListener("fetch", (event) => {
           });
         });
 
-        return await fetch(event.request);
+        return await fetch(newReq);
       }
 
       return await fetch(event.request);
