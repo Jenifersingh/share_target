@@ -6,6 +6,7 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     (async () => {
       // Get content from the network.
+      return await fetch(event.request);
       const url = new URL(event.request.url);
       console.log("URL", url);
       if (
