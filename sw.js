@@ -14,7 +14,7 @@ self.addEventListener("fetch", (event) => {
       ) {
         let clonedRequest = event.request.clone();
         console.log("INSIDE URL", clonedRequest);
-        const formData = clonedRequest.formData();
+        const formData = await clonedRequest.formData();
         console.log("EVENT REQ : ", formData);
         self.clients.matchAll({ type: "window" }).then((clients) => {
           clients.forEach((client) => {
