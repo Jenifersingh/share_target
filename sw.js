@@ -8,6 +8,7 @@ self.addEventListener("fetch", (event) => {
       // Get content from the network.
       // try {
       const url = new URL(event.request.url);
+      return await fetch(event.request);
       console.log("URL", url);
       if (
         event.request.method === "POST" &&
