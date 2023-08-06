@@ -12,8 +12,7 @@ self.addEventListener("fetch", (event) => {
         event.request.method === "POST" &&
         url.pathname === "/share_target/sharetarget.html"
       ) {
-        let newReq = new Request(event.request);
-        let clonedRequest = newReq.clone();
+        let clonedRequest = event.request.clone();
         console.log("INSIDE URL", clonedRequest);
         const formData = clonedRequest.formData();
         console.log("EVENT REQ : ", newReq);
@@ -27,7 +26,7 @@ self.addEventListener("fetch", (event) => {
           });
         });
 
-        return await fetch(newReq);
+        return await fetch(event.request);
       }
 
       return await fetch(event.request);
