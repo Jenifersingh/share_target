@@ -14,12 +14,12 @@ self.addEventListener("fetch", (event) => {
         url.pathname === "/share_target/sharetarget.html"
       ) {
         console.log("INSIDE URL", event.request);
-        const formData = await event.request.formData();
+        // const formData = await event.request.formData();
 
         self.clients.matchAll({ type: "window" }).then((clients) => {
           clients.forEach((client) => {
             client.postMessage({
-              formData,
+              // formData,
               id: "IDDS",
             });
           });
